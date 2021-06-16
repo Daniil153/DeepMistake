@@ -1,4 +1,4 @@
-# LexSubGen
+# DeepMistake at LSCD
 Lexical semantic change detection
 
 This repository contains the code to reproduce the results from the paper:
