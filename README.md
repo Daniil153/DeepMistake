@@ -62,36 +62,6 @@ Results of the lexical substitution task are presented in the following table. T
 
 
 ### Results reproduction
-Here we list XLNet reproduction commands that correspond
-to the results presented in the table above. Reproduction commands for all models you can 
-find in ```scripts/lexsub-all-models.sh``` Besides saving to the 'run-directory' 
-all results are saved using mlflow. To check them you can run ```mlflow ui``` in LexSubGen 
-directory and then open the web page in a browser. 
-
-Also you can use pytest to check the reproducibility. But it may take a long time:
-```shell script
-pytest tests/results_reproduction
-```
-* #### XLNet:
-XLNet Semeval07: 
-```shell script
-python lexsubgen/evaluations/lexsub.py solve --substgen-config-path configs/subst_generators/lexsub/xlnet.jsonnet --dataset-config-path configs/dataset_readers/lexsub/semeval_all.jsonnet --run-dir='debug/lexsub-all-models/semeval_all_xlnet' --force --experiment-name='lexsub-all-models' --run-name='semeval_all_xlnet'
-```
-
-XLNet CoInCo: 
-```shell script
-python lexsubgen/evaluations/lexsub.py solve --substgen-config-path configs/subst_generators/lexsub/xlnet.jsonnet --dataset-config-path configs/dataset_readers/lexsub/coinco.jsonnet --run-dir='debug/lexsub-all-models/coinco_xlnet' --force --experiment-name='lexsub-all-models' --run-name='coinco_xlnet'
-```
-
-XLNet with embeddings similarity Semeval07:
-```shell script
-python lexsubgen/evaluations/lexsub.py solve --substgen-config-path configs/subst_generators/lexsub/xlnet_embs.jsonnet --dataset-config-path configs/dataset_readers/lexsub/semeval_all.jsonnet --run-dir='debug/lexsub-all-models/semeval_all_xlnet_embs' --force --experiment-name='lexsub-all-models' --run-name='semeval_all_xlnet_embs'
-```
-
-XLNet with embeddings similarity CoInCo:
-```shell script
-python lexsubgen/evaluations/lexsub.py solve --substgen-config-path configs/subst_generators/lexsub/xlnet_embs.jsonnet --dataset-config-path configs/dataset_readers/lexsub/coinco.jsonnet --run-dir='debug/lexsub-all-models/coinco_xlnet_embs' --force --experiment-name='lexsub-all-models' --run-name='coinco_xlnet_embs'
-```
 
 ## Word Sense Induction Results
 <table>
