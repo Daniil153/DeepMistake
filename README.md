@@ -22,7 +22,7 @@ git clone https://github.com/davletov-aa/mcl-wic
 
 
 ## Results
-Results of the lexical substitution task are presented in the following table. To reproduce them, follow the instructions above to install the correct dependencies. 
+Results of the LSCD task are presented in the following table. To reproduce them, follow the instructions above to install the correct dependencies. 
 
 
 <table>
