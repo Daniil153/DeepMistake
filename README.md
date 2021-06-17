@@ -60,35 +60,3 @@ Results of the LSCD task are presented in the following table. To reproduce them
     </tbody>
 </table>
 
-
-### Results reproduction
-
-## Word Sense Induction Results
-<table>
-    <thead>
-        <tr>
-            <th rowspan=2><b>Model</b></th>
-            <th colspan=1><b>SemEval 2013</b></th>
-            <th colspan=1><b>SemEval 2010</b></th>
-        </tr>
-        <tr>
-            <th>AVG</th>
-            <th>AVG</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>XLNet</td>
-            <td>33.4</td>
-            <td>52.1</td>
-        </tr>
-        <tr>
-            <td>XLNet+embs</td>
-            <td>37.3</td>
-            <td>54.1</td>
-        </tr>
-    </tbody>
-</table>
-
-To reproduce these results use 2.3.0 version of transformers and the following command:
-
