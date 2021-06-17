@@ -21,7 +21,6 @@ git clone https://github.com/davletov-aa/mcl-wic
     pip install -r requirements.txt
     ```
 ### Solution for RuShiftEval 2021
-### Solution for SemEval 2020 Task1
 
 ## Results
 Results of the LSCD task are presented in the following table. To reproduce them, follow the instructions above to install the correct dependencies. 
@@ -62,3 +61,4 @@ Results of the LSCD task are presented in the following table. To reproduce them
     </tbody>
 </table>
 
+### Solution for SemEval 2020 Task1
