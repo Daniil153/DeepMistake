@@ -37,21 +37,21 @@ Results of the lexical substitution task are presented in the following table. T
     </thead>
     <tbody>
         <tr>
-            <td>first+concat on <span class="formula">MCL<span><sup>en-acc</sup><sub>CE</sub></span></span> &rarr; RSS dev2−sentSpear, LinReg</td>
+            <td>first+concat on MCL<sup>en-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>MSE</sub>, LinReg</td>
             <td>0.791</td>
             <td>0.798</td>
             <td>0.773</td>
             <td>0.803</td>
         </tr>
         <tr>
-            <td>mean+dist_l1ndotn­hs0 on MCL nen−acc RSS, Mean</td>
+            <td>mean+dist_l1ndotn-hs0 on MCL<sup>nen-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>MSE</sub>, Mean</td>
             <td>0.823</td>
             <td>0.825</td>
             <td>0.821</td>
             <td>0.823</td>
         </tr>
         <tr>
-            <td>mean+dist_l1ndotn­hs0 on MCL nen−acc RSS CE, Mean</td>
+            <td>mean+dist_l1ndotn-hs0 on MCL<sup>nen-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>CE</sub>, Mean</td>
             <td>0.843</td>
             <td>0.846</td>
             <td>0.848</td>
