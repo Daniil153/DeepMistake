@@ -24,9 +24,6 @@ git clone https://github.com/davletov-aa/mcl-wic
 ## Results
 Results of the lexical substitution task are presented in the following table. To reproduce them, follow the instructions above to install the correct dependencies. 
 
-<br />Формула: 
-    <span class="formula">O<span><sup>0</sup><sub>2</sub></span></span> текст после формулы
-<br />ЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕ</p>
 
 <table>
     <thead>
