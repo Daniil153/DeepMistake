@@ -37,7 +37,7 @@ Results of the lexical substitution task are presented in the following table. T
     </thead>
     <tbody>
         <tr>
-            <td>first+concat on RSS dev2−sentSpear<sub>3</sub>, LinReg</td>
+            <td>first+concat on MCL<sub>CE</sub><sup>en-acc</sup> &rarr; RSS dev2−sentSpear, LinReg</td>
             <td>0.791</td>
             <td>0.798</td>
             <td>0.773</td>
