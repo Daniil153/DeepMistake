@@ -3,7 +3,7 @@ Lexical semantic change detection
 
 This repository contains the code to reproduce the results from the paper:
 
-Arefyev Nikolay, Maksim Fedoseev, Vitaly Protasov, Daniil Homskiy, Adis Davletov, Alexander Panchenko. ["Always Keep your Target in Mind: Studying Semantics and Improving Performance of Neural Lexical Substitution"](https://www.aclweb.org/anthology/2020.coling-main.107/), 
+Arefyev Nikolay, Maksim Fedoseev, Vitaly Protasov, Daniil Homskiy, Adis Davletov, Alexander Panchenko. ["DeepMistake: Which Senses are Hard to Distinguish for a Word­in­Context Model"](http://www.dialog-21.ru/media/5235/arefyevnplusetal133.pdf),
 
 
 
