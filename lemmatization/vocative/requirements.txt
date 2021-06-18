@@ -1,0 +1,5 @@
+pathlib
+python-crfsuite
+git+https://github.com/Koziev/rusyllab
+pymorphy2
+tqdm
