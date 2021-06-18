@@ -25,9 +25,11 @@ git clone https://github.com/davletov-aa/mcl-wic
 First, you need to download [word usages and other necessary files](https://zenodo.org/record/4977798#.YMxeNCZRVH4). Also you can use script:
 ```shell script
 bash download_files.sh
-bash download_models.sh for downloading weights of 3 best models
 ```
-
+For downloading weights of 3 best models:
+```shell script
+bash download_models.sh 
+```
 
 ## Results
 Results of the LSCD task are presented in the following table. To reproduce them, follow the instructions above to install the correct dependencies. 
