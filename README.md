@@ -12,6 +12,7 @@ Arefyev Nikolay, Maksim Fedoseev, Vitaly Protasov, Daniil Homskiy, Adis Davletov
 Clone repository from github.com.
 ```shell script
 git clone https://github.com/Daniil153/RuShiftEval
+cd RuShiftEval
 git clone https://github.com/davletov-aa/mcl-wic
 ```
 
