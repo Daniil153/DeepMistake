@@ -30,6 +30,10 @@ For downloading weights of 3 best models:
 ```shell script
 bash download_models.sh 
 ```
+To reproduce the best result in evaluation you need use:
+```shell script
+bash eval_best_eval_model.sh
+```
 
 ## Results
 Results of the LSCD task are presented in the following table. To reproduce them, follow the instructions above to install the correct dependencies. 
