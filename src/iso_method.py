@@ -37,7 +37,7 @@ def run_model(train_gold=[(path_to_data + 'train_1.rusemshift.tsv', path_to_gold
                         (path_to_data + 'dev_2.rusemshift.tsv', path_to_gold + 'dev_2.rusemshift.gold.tsv')],
               test=[path_to_data + 'test.scd_12_sl-True_fl-True_np-100.tsv',
                     path_to_data + 'test.scd_23_sl-True_fl-True_np-100.tsv',
-                    path_to_data + 'test.scd_13_sl-True_fl-True_np-100.tsv'],
+                    path_to_data + 'test.scd_13_sl-True_fl-True_np-100.tsv'],	
               model_name=''):
     """
     launches a model that calculates metrics using isotonic regression on the scores for sentences and saves the metrics

@@ -33,12 +33,13 @@ def run_model(train=[path_to_data + 'train_1.rusemshift.tsv', path_to_data + 'tr
               train_gold=[(path_to_data + 'train_1.rusemshift.tsv', path_to_gold + 'train_1.rusemshift.gold.tsv'),
                           (path_to_data + 'train_2.rusemshift.tsv', path_to_gold + 'train_2.rusemshift.gold.tsv')],
               dev=[path_to_data + 'dev_1.rusemshift.tsv', path_to_data + 'dev_2.rusemshift.tsv',
-                   path_to_data + 'dev_1.scd_12_sl-True_fl-True_np-100.tsv'],
+                   path_to_data + 'dev_1.scd_12_sl-False_fl-False_np-100.tsv'],
               dev_gold=[(path_to_data + 'dev_1.rusemshift.tsv', path_to_gold + 'dev_1.rusemshift.gold.tsv'),
                         (path_to_data + 'dev_2.rusemshift.tsv', path_to_gold + 'dev_2.rusemshift.gold.tsv')],
-              test=[path_to_data + 'test.scd_12_sl-True_fl-True_np-100.tsv',
-                    path_to_data + 'test.scd_23_sl-True_fl-True_np-100.tsv',
-                    path_to_data + 'test.scd_13_sl-True_fl-True_np-100.tsv'],
+              test=[path_to_data + 'test.scd_12_sl-False_fl-False_np-100.tsv',
+                    path_to_data + 'test.scd_23_sl-False_fl-False_np-100.tsv',
+                    path_to_data + 'test.scd_13_sl-False_fl-False_np-100.tsv'],
+              test_gold='rushiftEval/eval_answer.tsv',
               stat=['mean', '0.25', '0.5', '0.75'],
               model_name=''):
     """
@@ -58,6 +59,10 @@ def run_model(train=[path_to_data + 'train_1.rusemshift.tsv', path_to_data + 'tr
     reg = GridSearchCV(lr, parameters, cv=10)
     X_train, y_train = [], []
     trains_gold, dfs_train_ans = {}, {}
+    df_dev = pd.DataFrame()
+    t = [a.split('/')[-1] for a in train]
+    sst = '+'.join(stat)
+    df_dev['model'] = [f'lr_{sst}_{model_name}_trained-{"+".join(t)}']
     for i in train_gold:
         df_temp_ans = pd.read_csv(i[1], sep='\t')
         df_temp_ans_data = pd.read_csv(i[0], sep='\t')
@@ -66,10 +71,12 @@ def run_model(train=[path_to_data + 'train_1.rusemshift.tsv', path_to_data + 'tr
         qq_ans = df_temp_ans_data.groupby('word').mean()
         qq_ans.sort_index(inplace=True)
         df_temp_ans_data['tag'] = df_temp_ans_data.apply(lambda r: 'T' if r.scores > 0.5 else 'F', axis=1)
-        if '_1.' in i[0]:
+        if '_1.' in i[0].split('/')[-1]:
             temp = 'train_1'
-        else:
+        elif '_2.' in i[0].split('/')[-1]:
             temp = 'train_2'
+        else:
+            temp = 'train'
         trains_gold[temp] = qq_ans
         dfs_train_ans[temp] = df_temp_ans_data
     for i in train:
@@ -82,9 +89,6 @@ def run_model(train=[path_to_data + 'train_1.rusemshift.tsv', path_to_data + 'tr
             y_train_temp = list(trains_gold['train_2'].gold_score)
         y_train.extend(y_train_temp)
     reg.fit(X_train, y_train)
-    df_dev = pd.DataFrame()
-    t = [a.split('/')[-1] for a in train]
-    df_dev['model'] = [f'lr_{stat}_{model_name}_trained-{"+".join(t)}']
     devs_gold, dfs_dev_ans = {}, {}
     for i in dev_gold:
         df_temp_ans = pd.read_csv(i[1], sep='\t')
@@ -94,7 +98,7 @@ def run_model(train=[path_to_data + 'train_1.rusemshift.tsv', path_to_data + 'tr
         qq_ans = df_temp_ans_data.groupby('word').mean()
         qq_ans.sort_index(inplace=True)
         df_temp_ans_data['tag'] = df_temp_ans_data.apply(lambda r: 'T' if r.scores > 0.5 else 'F', axis=1)
-        if '_1.' in i[0]:
+        if '_1.' in i[0].split('/')[-1]:
             temp = 'dev_1'
         else:
             temp = 'dev_2'
@@ -120,8 +124,9 @@ def run_model(train=[path_to_data + 'train_1.rusemshift.tsv', path_to_data + 'tr
             df_dev[i.split('/')[-1] + '_accuracy'] = [acc]
             df_dev[i.split('/')[-1] + '_sent_spearman'] = [sent_spearman]
         df_dev[i.split('/')[-1] + '_word_spearman'] = [corr]
-    df_dev.to_csv(f'{model_name}_trained-{"+".join(t)}_stat_dev_metrics.tsv', sep='\t', index=False, header=True)
+    ppath = model_name.replace('+', '/')
     df_subm = pd.DataFrame()
+    dfs_test_ans = {}
     for i in test:
         df_temp = pd.read_csv(i, sep='\t')
         fch = fstat(df_temp, stat)
@@ -131,8 +136,22 @@ def run_model(train=[path_to_data + 'train_1.rusemshift.tsv', path_to_data + 'tr
         if len(df_subm) == 0:
             df_subm['word'] = words
         df_subm[i.split('/')[-1]] = pred
+    if test_gold:
+        columns_subm = list(df_subm.columns)
+        df_subm = df_subm.rename(
+            columns={columns_subm[1]: '12_pred', columns_subm[2]: '23_pred', columns_subm[3]: '13_pred'})
+        df_an = pd.read_csv(test_gold, sep='\t', names=['word', '12_gold', '23_gold', '13_gold'])
+        df_an = df_an.merge(df_subm, on='word', how='inner')
+        ans12 = spearman(df_an['12_pred'], df_an['12_gold'])
+        ans23 = spearman(df_an['23_pred'], df_an['23_gold'])
+        ans13 = spearman(df_an['13_pred'], df_an['13_gold'])
+        df_dev[f'sampled_test12_w_spearman'] = [ans12]
+        df_dev[f'sampled_test13_w_spearman'] = [ans13]
+        df_dev[f'sampled_test23_w_spearman'] = [ans23]
+        df_dev[f'avg_test_w_spearman'] = [(ans13 + ans12 + ans23) / 3]
     temp = df_subm.columns[1]
-    df_subm.to_csv(f'{model_name}_trained-{"+".join(t)}_stat_answer_{temp.split(".")[1]}.tsv', sep='\t', index=False, header=False)
+    df_dev.to_csv(f'stat_dev_metrics.tsv', sep='\t', index=False, header=True)
+    df_subm.to_csv(f'stat_answer.tsv', sep='\t', index=False, header=False)
 
 if __name__ == '__main__':
     fire.Fire(run_model)
