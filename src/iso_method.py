@@ -26,25 +26,22 @@ def fmean(df_temp):
     qq.sort_index(inplace=True)
     return list(qq.index), list(qq.scores)
 
-def run_model(train=['train_1.rusemshift.tsv', 'train_2.rusemshift.tsv'],
-              train_gold=[('train_1.rusemshift.tsv', 'train_1.rusemshift.gold.tsv'),
+def run_model(train_gold=[('train_1.rusemshift.tsv', 'train_1.rusemshift.gold.tsv'),
                           ('train_2.rusemshift.tsv', 'train_2.rusemshift.gold.tsv')],
               dev=['dev_1.rusemshift.tsv', 'dev_2.rusemshift.tsv',
-                   'dev_1.scd_12_sl-False_fl-False_np-100.tsv'],
+                   'dev_1.scd_12_sl-True_fl-True_np-100.tsv'],
               dev_gold=[('dev_1.rusemshift.tsv', 'dev_1.rusemshift.gold.tsv'),
                         ('dev_2.rusemshift.tsv', 'dev_2.rusemshift.gold.tsv')],
-              test=['test.scd_12_sl-False_fl-False_np-100.tsv',
-                    'test.scd_23_sl-False_fl-False_np-100.tsv',
-                    'test.scd_13_sl-False_fl-False_np-100.tsv'],
+              test=['test.scd_12_sl-True_fl-True_np-100.tsv',
+                    'test.scd_23_sl-True_fl-True_np-100.tsv',
+                    'test.scd_13_sl-True_fl-True_np-100.tsv'],
               test_gold='rushiftEval/eval_answer.tsv',
               model_name=''):
-    train = [path_to_data + model_name + '_tsvs/' + i for i in train]
     train_gold = [(path_to_data + model_name + '_tsvs/' + i, path_to_gold + model_name + '_tsvs/' + j) for i,j in train_gold]
     dev = [path_to_data + model_name + '_tsvs/' + i for i in dev]
     dev_gold = [(path_to_data + model_name + '_tsvs/' + i, path_to_gold + model_name + '_tsvs/' + j) for i,j in dev_gold]
     test = [path_to_data + model_name + '_tsvs/' + i for i in test]
-    run_method(train=train,
-              train_gold=train_gold,
+    run_method(train_gold=train_gold,
               dev=dev,
               dev_gold=dev_gold,
               test=test,
