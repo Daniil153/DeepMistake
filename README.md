@@ -21,6 +21,13 @@ git clone https://github.com/davletov-aa/mcl-wic
     ```shell script
     pip install -r mcl-wic/requirements.txt
     ```
+You can train the best three models with 
+```shell script
+train_best_eval_model.sh
+train_best2_post-eval_model.sh
+train_best_post-eval_model.sh
+```
+
 ### Solution for RuShiftEval 2021
 First, you need to download [word usages and other necessary files](https://zenodo.org/record/4977798#.YMxeNCZRVH4). Also you can use script:
 ```shell script
