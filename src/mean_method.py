@@ -26,7 +26,7 @@ def run_model(dev=['dev_1.rusemshift.tsv', 'dev_2.rusemshift.tsv',
                     'test.scd_23_sl-True_fl-True_np-100.tsv',
                     'test.scd_13_sl-True_fl-True_np-100.tsv'],
               test_gold='rushiftEval/eval_answer.tsv',
-              model_name='', s=100, st=1):
+              model_name=''):
     dev = [path_to_data + model_name + '_tsvs/' + i for i in dev]
     dev_gold = [(path_to_data + model_name + '_tsvs/' + i, path_to_gold + model_name + '_tsvs/' + j) for i,j in dev_gold]
     test = [path_to_data + model_name + '_tsvs/' + i for i in test]
@@ -44,8 +44,8 @@ def run_method(dev=[path_to_data + 'dev_1.rusemshift.tsv', path_to_data + 'dev_2
               test=[path_to_data + 'test.scd_12_sl-True_fl-True_np-100.tsv',
                     path_to_data + 'test.scd_23_sl-True_fl-True_np-100.tsv',
                     path_to_data + 'test.scd_13_sl-True_fl-True_np-100.tsv'],
-              test_gold='eval_answer.tsv',
-              model_name=''		):
+              test_gold='rushiftEval/eval_answer.tsv',
+              model_name=''):
     """
     launches a model that calculates metrics using mean on the scores for sentences and saves the metrics
     on the dev sample and prepares a file for submission. Saves 2 files: with dev metrics and a file for submission
