@@ -24,7 +24,7 @@ git clone https://github.com/davletov-aa/mcl-wic
 ### Solution for RuShiftEval 2021
 First, you need to download [word usages and other necessary files](https://zenodo.org/record/4977798#.YMxeNCZRVH4). Also you can use script:
 ```shell script
-wget https://zenodo.org/record/4981585/files/first_concat.zip?download=1 
+bash download_models.sh
 ```
 
 
