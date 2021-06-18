@@ -4,8 +4,8 @@ from sklearn.isotonic import IsotonicRegression
 from scipy.stats import spearmanr
 from sklearn.metrics import accuracy_score
 
-path_to_data = 'pairs/combine/sampled_data/tsvs/'
-path_to_gold = 'gold/tsvs/'
+path_to_data = 'pairs/combine/sampled_data/'
+path_to_gold = 'gold/'
 
 def spearman(y_true_score, y_pred_score):
 	corr, _ = spearmanr(y_true_score, y_pred_score)
@@ -26,8 +26,32 @@ def fmean(df_temp):
     qq.sort_index(inplace=True)
     return list(qq.index), list(qq.scores)
 
+def run_model(train=['train_1.rusemshift.tsv', 'train_2.rusemshift.tsv'],
+              train_gold=[('train_1.rusemshift.tsv', 'train_1.rusemshift.gold.tsv'),
+                          ('train_2.rusemshift.tsv', 'train_2.rusemshift.gold.tsv')],
+              dev=['dev_1.rusemshift.tsv', 'dev_2.rusemshift.tsv',
+                   'dev_1.scd_12_sl-False_fl-False_np-100.tsv'],
+              dev_gold=[('dev_1.rusemshift.tsv', 'dev_1.rusemshift.gold.tsv'),
+                        ('dev_2.rusemshift.tsv', 'dev_2.rusemshift.gold.tsv')],
+              test=['test.scd_12_sl-False_fl-False_np-100.tsv',
+                    'test.scd_23_sl-False_fl-False_np-100.tsv',
+                    'test.scd_13_sl-False_fl-False_np-100.tsv'],
+              test_gold='rushiftEval/eval_answer.tsv',
+              model_name=''):
+    train = [path_to_data + model_name + '_tsvs/' + i for i in train]
+    train_gold = [(path_to_data + model_name + '_tsvs/' + i, path_to_gold + model_name + '_tsvs/' + j) for i,j in train_gold]
+    dev = [path_to_data + model_name + '_tsvs/' + i for i in dev]
+    dev_gold = [(path_to_data + model_name + '_tsvs/' + i, path_to_gold + model_name + '_tsvs/' + j) for i,j in dev_gold]
+    test = [path_to_data + model_name + '_tsvs/' + i for i in test]
+    run_method(train=train,
+              train_gold=train_gold,
+              dev=dev,
+              dev_gold=dev_gold,
+              test=test,
+              test_gold=test_gold,
+              model_name=model_name)
 
-def run_model(train_gold=[(path_to_data + 'train_1.rusemshift.tsv', path_to_gold + 'train_1.rusemshift.gold.tsv'),
+def run_method(train_gold=[(path_to_data + 'train_1.rusemshift.tsv', path_to_gold + 'train_1.rusemshift.gold.tsv'),
                           (path_to_data + 'train_2.rusemshift.tsv', path_to_gold + 'train_2.rusemshift.gold.tsv')],
               dev=[path_to_data + 'dev_1.rusemshift.tsv', path_to_data + 'dev_2.rusemshift.tsv',
                    path_to_data + 'dev_1.scd_12_sl-False_fl-False_np-100.tsv'],
@@ -120,8 +144,8 @@ def run_model(train_gold=[(path_to_data + 'train_1.rusemshift.tsv', path_to_gold
         df_dev[f'sampled_test23_w_spearman'] = [ans23]
         df_dev[f'avg_test_w_spearman'] = [(ans13 + ans12 + ans23) / 3]
     temp = df_subm.columns[1]
-    df_dev.to_csv(f'iso_dev_metrics.tsv', sep='\t', index=False, header=True)
-    df_subm.to_csv(f'iso_answer.tsv', sep='\t', index=False, header=False)
+    df_dev.to_csv(f'{model_name}_iso_dev_metrics.tsv', sep='\t', index=False, header=True)
+    df_subm.to_csv(f'{model_name}_iso_answer.tsv', sep='\t', index=False, header=False)
 
 if __name__ == '__main__':
     fire.Fire(run_model)
