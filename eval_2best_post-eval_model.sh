@@ -6,6 +6,7 @@ python src/sample_scr.py --path_to_test rushiftEval/Evaluation_words/ --path_to_
 echo "sample comlete"
 cd mcl-wic
 python run_model.py --do_eval --ckpt_path ../mean_dist_l1ndotn_MSE --eval_input_dir ../pairs/combine/sampled_data --eval_output_dir rusemshift_predictions/ --output_dir ../first_concat --loss mse_loss --pool_type mean --symmetric true --train_scd 
+cd ..
 mkdir sampled_data
 mkdir sampled_data/score
 mkdir sampled_data/ans
