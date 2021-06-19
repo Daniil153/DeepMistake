@@ -10,9 +10,9 @@ cd ..
 mkdir sampled_data
 mkdir sampled_data/score
 mkdir sampled_data/ans
-mv concat_first/rusemshift_predictions/*.scores sampled_data/score/
-mv concat_first/rusemshift_predictions/* sampled_data/ans/ 
-python src/constr.py --type mean --model_name concat_first
-python src/mean_method.py --model_name concat_first
-python src/statistics_method.py --model_name concat_first
-python src/iso_method.py --model_name concat_first
+mv first_concat/rusemshift_predictions/*.scores sampled_data/score/
+mv first_concat/rusemshift_predictions/* sampled_data/ans/ 
+python src/constr.py --type mean --model_name first_concat
+python src/mean_method.py --model_name first_concat
+python src/statistics_method.py --model_name first_concat
+python src/iso_method.py --model_name first_concat
