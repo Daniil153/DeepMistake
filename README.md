@@ -41,6 +41,14 @@ To reproduce the best result in evaluation you need use:
 ```shell script
 bash eval_best_eval_model.sh
 ```
+To reproduce the best result in post evaluation you need use:
+```shell script
+bash eval_best_post-eval_model.sh
+```
+To reproduce second the best result in post evaluation you need use
+```shell script
+bash eval_2best_post-eval_model.sh
+```
 
 ## Results
 Results of the LSCD task are presented in the following table. To reproduce them, follow the instructions above to install the correct dependencies. 
