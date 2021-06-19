@@ -73,7 +73,7 @@ Results of the LSCD task are presented in the following table. To reproduce them
             <td>0.803</td>
         </tr>
         <tr>
-            <td>mean+dist_l1ndotn-hs0 on MCL<sup>nen-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>MSE</sub>, Mean</td>
+            <td>mean+dist_l1ndotn-hs0 on MCL<sup>nen-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>MSE</sub>, Mean (https://zenodo.org/record/4992633/files/mean_dist_l1ndotn_MSE.zip)</td>
             <td>0.823</td>
             <td>0.825</td>
             <td>0.821</td>
