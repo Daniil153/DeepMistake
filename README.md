@@ -67,10 +67,10 @@ Results of the LSCD task are presented in the following table. To reproduce them
     <tbody>
         <tr>
             <td>first+concat on MCL<sup>en-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>MSE</sub>, LinReg(https://zenodo.org/record/4981585/files/first_concat.zip)</td>
-            <td>0.791</td>
-            <td>0.798</td>
-            <td>0.773</td>
-            <td>0.803</td>
+            <td>0.795</td>
+            <td>0.812</td>
+            <td>0.78</td>
+            <td>0.795</td>
         </tr>
         <tr>
             <td>mean+dist_l1ndotn-hs0 on MCL<sup>nen-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>MSE</sub>, Mean (https://zenodo.org/record/4992633/files/mean_dist_l1ndotn_MSE.zip)</td>
@@ -81,10 +81,10 @@ Results of the LSCD task are presented in the following table. To reproduce them
         </tr>
         <tr>
             <td>mean+dist_l1ndotn-hs0 on MCL<sup>nen-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>CE</sub>, Mean (https://zenodo.org/record/4992613/files/mean_dist_l1ndotn_CE.zip)</td>
-            <td>0.843</td>
-            <td>0.846</td>
-            <td>0.848</td>
-            <td>0.836</td>
+            <td>0.85</td>
+            <td>0.863</td>
+            <td>0.854</td>
+            <td>0.834</td>
         </tr>
     </tbody>
 </table>
