@@ -1,35 +1,38 @@
-# DeepMistake at LSCD
+# Lexical Semantic Change Detection (LSCD) for the Russian language by the DeepMistake team.
 Lexical semantic change detection
 
-This repository contains the code to reproduce the results from the paper:
+This repository contains code to reproduce the best results from the paper:
 
-Arefyev Nikolay, Maksim Fedoseev, Vitaly Protasov, Daniil Homskiy, Adis Davletov, Alexander Panchenko. ["DeepMistake: Which Senses are Hard to Distinguish for a Word­in­Context Model"](http://www.dialog-21.ru/media/5235/arefyevnplusetal133.pdf),
+Arefyev Nikolay, Maksim Fedoseev, Vitaly Protasov, Daniil Homskiy, Adis Davletov, Alexander Panchenko. ["DeepMistake: Which Senses are Hard to Distinguish for a Word­in­Context Model"](http://www.dialog-21.ru/media/5235/arefyevnplusetal133.pdf) in Computational Linguistics and Intellectual Technologies: Proceedings of the International Conference “Dialogue 2021”.
 
+DeepMistake was 2nd best system in the [RuShiftEval-2021 competition](http://www.dialog-21.ru/media/5296/pivovarovalpluskutuzova151.pdf).
 
+After the competition we improved the system and outperformed the winner of the competition (see the table below).
 
+# Citation
+If you use any part of the system, please, cite our paper above.
+
+# Reproduction of the best results
 
 ## Installation
-Clone repository from github.com.
+Clone repositories:
 ```shell script
 git clone https://github.com/Daniil153/DeepMistake
 cd DeepMistake
 git clone https://github.com/davletov-aa/mcl-wic
 ```
-
-### Setup environment
-1. Install requirements
-    ```shell script
-    pip install -r mcl-wic/requirements.txt
-    ```
-
-### Solution for RuShiftEval 2021
-First, you need to download [word usages and other necessary files](https://zenodo.org/record/4977798#.YMxeNCZRVH4). Also you can use script:
+Install requirements 
+```shell script
+pip install -r mcl-wic/requirements.txt
+ ```
+## The solution for the RuShiftEval-2021 shared task on LSCD.
+Download [data](https://zenodo.org/record/4977798#.YMxeNCZRVH4). You can download data from the command line also:
 ```shell script
 bash download_files.sh
 ```
-For downloading weights of 3 best models:
+Download models: 
 ```shell script
-bash download_models.sh 
+bash download_models.sh first_concat mean_dist_l1ndotn_MSE mean_dist_l1ndotn_CE
 ```
 To reproduce the best result in evaluation you need use:
 ```shell script
