@@ -60,6 +60,7 @@ Results of the LSCD task are presented in the following table. To reproduce them
             <th colspan=1><b>RuShiftEval1</b></th>
             <th colspan=1><b>RuShiftEval2</b></th>
             <th colspan=1><b>RuShiftEval3</b></th>
+            <th colspan=1><b>Script</b></th>
         </tr>
     </thead>
     <tbody>
@@ -69,6 +70,7 @@ Results of the LSCD task are presented in the following table. To reproduce them
             <td>0.812</td>
             <td>0.78</td>
             <td>0.795</td>
+            <td>eval_best_eval_model.sh</td>
         </tr>
         <tr>
             <td>mean+dist_l1ndotn-hs0 on MCL<sup>nen-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>MSE</sub>, Mean (https://zenodo.org/record/4992633/files/mean_dist_l1ndotn_MSE.zip)</td>
@@ -76,6 +78,7 @@ Results of the LSCD task are presented in the following table. To reproduce them
             <td>0.839</td>
             <td>0.834</td>
             <td>0.826</td>
+            <td>eval_2best_post-eval_model.sh</td>
         </tr>
         <tr>
             <td>mean+dist_l1ndotn-hs0 on MCL<sup>nen-acc</sup><sub>CE</sub> &rarr; RSS<sup>dev2-sentSpear</sup><sub>CE</sub>, Mean (https://zenodo.org/record/4992613/files/mean_dist_l1ndotn_CE.zip)</td>
@@ -83,6 +86,7 @@ Results of the LSCD task are presented in the following table. To reproduce them
             <td>0.863</td>
             <td>0.854</td>
             <td>0.834</td>
+            <td>eval_best_post-eval_model.sh</td>
         </tr>
     </tbody>
 </table>
