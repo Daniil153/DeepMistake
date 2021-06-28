@@ -93,7 +93,7 @@ Results of the LSCD task are presented in the following table. To reproduce them
 
 
 ### Solution for SemEval 2020 Task1
-
+In the process
 
 ## Train models
 Also you can train the best three models with 
