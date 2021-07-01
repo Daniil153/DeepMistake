@@ -178,6 +178,7 @@ def run_method(train=[path_to_data + 'train_1.rusemshift.tsv', path_to_data + 't
         df_dev[f'sampled_test13_w_spearman'] = [ans13]
         df_dev[f'sampled_test23_w_spearman'] = [ans23]
         df_dev[f'avg_test_w_spearman'] = [(ans13 + ans12 + ans23) / 3]
+	print(f'LinReg method: test12 - {ans12}, test13 - {ans13}, test23 - {ans23}, avg_test - {(ans13 + ans12 + ans23) / 3}')
     temp = df_subm.columns[1]
     df_dev.to_csv(f'{model_name}_stat_dev_metrics.tsv', sep='\t', index=False, header=True)
     df_subm.to_csv(f'{model_name}_stat_answer.tsv', sep='\t', index=False, header=False)
